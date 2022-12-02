@@ -1,3 +1,5 @@
+use std::fs;
+
 fn part_1(file: &str) {
     let contents = fs::read_to_string(file).expect("Should have been able to read the file");
     let elves: Vec<&str> = contents.split("\n\n").collect();

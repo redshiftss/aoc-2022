@@ -1,6 +1,7 @@
-use day1::run_day_1;
+use day2::run_day_2;
 mod day1;
+mod day2;
 
 fn main() {
-    run_day_1("src/day1/test_complex")
+    run_day_2("src/day2/text_complex")
 }
