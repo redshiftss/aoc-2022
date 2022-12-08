@@ -23,28 +23,31 @@ fn parse(file: &str) -> (Vec<Vec<char>>, Vec<(i32, i32, i32)>) {
         .lines()
         .map(|x| {
             let spl: Vec<&str> = x.split_whitespace().collect();
-            (spl[1].parse().unwrap(), spl[3].parse().unwrap(), spl[5].parse().unwrap())
+            (
+                spl[1].parse().unwrap(),
+                spl[3].parse().unwrap(),
+                spl[5].parse().unwrap(),
+            )
         })
         .collect();
-    
-    
+
     (stacks, moves)
 }
 
 fn part_1(file: &str) {
     let (mut stacks, moves) = parse(file);
-    for mv in moves{
+    for mv in moves {
         let from = mv.1;
         let to = mv.2;
-        
-        (0..mv.0).for_each(|_|{
+
+        (0..mv.0).for_each(|_| {
             let item = stacks[from as usize].pop().unwrap();
             stacks[to as usize].push(item);
         });
     }
-    
+
     for mut stack in stacks {
-        if !stack.is_empty(){
+        if !stack.is_empty() {
             print!("{}", stack.pop().unwrap());
         }
     }
@@ -53,20 +56,20 @@ fn part_1(file: &str) {
 
 fn part_2(file: &str) {
     let (mut stacks, moves) = parse(file);
-    for mv in moves{
+    for mv in moves {
         let from = mv.1;
         let to = mv.2;
         let mut items = vec![];
 
-        (0..mv.0).for_each(|_|{
+        (0..mv.0).for_each(|_| {
             items.push(stacks[from as usize].pop().unwrap());
         });
         items.reverse();
         stacks[to as usize].append(&mut items);
     }
-    
+
     for mut stack in stacks {
-        if !stack.is_empty(){
+        if !stack.is_empty() {
             print!("{}", stack.pop().unwrap());
         }
     }
