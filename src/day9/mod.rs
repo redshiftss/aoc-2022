@@ -100,12 +100,12 @@
 //                 let pos = prop_tail(tails_vector[j], tails_vector[j + 1]);
 //                 tails_vector[j + 1] = pos.1;
 //             }
-            
+
 //             tail_positions.insert(tails_vector[9]);
 //         }
-        
+
 //     }
-    
+
 //     dbg!(tail_positions.len());
 
 // }

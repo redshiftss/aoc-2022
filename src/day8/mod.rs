@@ -98,7 +98,10 @@ fn part_2(file: &str) {
     let mut max = -1;
     for y in 1..height - 1 {
         for x in 1..width - 1 {
-            let scenic_score = scenicScoreEast(trees.clone(), x, y) * scenicScoreNorth(trees.clone(), x, y) * scenicScoreWest(trees.clone(), x, y) * scenicScoreSouth(trees.clone(), x, y);
+            let scenic_score = scenicScoreEast(trees.clone(), x, y)
+                * scenicScoreNorth(trees.clone(), x, y)
+                * scenicScoreWest(trees.clone(), x, y)
+                * scenicScoreSouth(trees.clone(), x, y);
             if scenic_score > max {
                 max = scenic_score
             }
@@ -127,7 +130,7 @@ fn scenicScoreSouth(trees: Vec<Vec<i32>>, x: usize, y: usize) -> i32 {
     for i in y + 1..trees.len() {
         count += 1;
         if tree <= trees[i][w] {
-            return count
+            return count;
         }
     }
     count
@@ -138,10 +141,10 @@ fn scenicScoreWest(trees: Vec<Vec<i32>>, x: usize, y: usize) -> i32 {
     let tree = trees[y][x];
     let h = y;
     let mut count = 0;
-    for j in (0..x).rev(){
+    for j in (0..x).rev() {
         count += 1;
         if tree <= trees[h][j] {
-            return count
+            return count;
         }
     }
     count
